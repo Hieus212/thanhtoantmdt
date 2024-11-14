@@ -8,7 +8,7 @@ composer install
 ```
 
 
-<script src="https://dev.sapo.payos.vn/checkout.php"></script>
+<script src="https://neu-ebook.mysapo.net/checkout.php"></script>
 
 ``` 
 
