@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f7f7f7; /* Màu nền sáng hơn */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,36 +19,37 @@
 
         .form-container {
             background-color: #ffffff;
-            padding: 20px;
+            padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 600px;
         }
 
         h1 {
             text-align: center;
-            color: #78be20;
+            color: #4CAF50; /* Xanh lá cây sáng */
         }
 
         form {
             display: grid;
             grid-template-columns: 1fr 1fr; /* Hai cột */
-            gap: 15px;
+            gap: 20px;
         }
 
         label {
             font-weight: bold;
             display: block;
+            color: #333; /* Màu chữ tối hơn */
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ddd; /* Màu viền nhạt hơn */
         }
 
         textarea {
@@ -56,21 +57,23 @@
         }
 
         input[type="submit"] {
-            background-color: #78be20;
+            background-color: #FF5733; /* Màu cam nổi bật */
             color: white;
             border: none;
             cursor: pointer;
             font-size: 16px;
-            padding: 12px 20px;
+            padding: 15px 22px;
             grid-column: span 2; /* Làm cho nút submit chiếm toàn bộ cột */
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #658d1b;
+            background-color: #C7461C; /* Màu cam đậm hơn khi hover */
         }
 
         .error {
-            color: red;
+            color: #FF0000; /* Đỏ sáng cho thông báo lỗi */
             font-size: 12px;
         }
 
