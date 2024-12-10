@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký Dịch Vụ Dọn Nhà</title>
+    <title>Đăng Ký Dịch Vụ Chăm Sóc Thú Cưng</title>
     <style>
         /* Định dạng chung */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f7f7f7; /* Nền sáng hơn */
         }
 
         .container {
@@ -25,7 +25,7 @@
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #4CAF50; /* Xanh lá cây sáng */
         }
 
         .form-group {
@@ -48,13 +48,13 @@
         }
 
         input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #FF5733; /* Màu cam nổi bật */
             color: white;
             cursor: pointer;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #C7461C; /* Màu cam đậm hơn khi hover */
         }
 
         .error {
@@ -88,7 +88,7 @@
 <body>
 
     <div class="container">
-        <h2>Đăng Ký Dịch Vụ Dọn Nhà</h2>
+        <h2>Đăng Ký Dịch Vụ Chăm Sóc Thú Cưng</h2>
         <form id="registrationForm">
             <div class="form-group">
                 <label for="name">Họ và tên:</label>
@@ -105,24 +105,35 @@
             <div class="form-group">
                 <label for="phone">Số điện thoại:</label>
                 <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
-<div id="phoneError" class="error"></div>
+                <div id="phoneError" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="service">Loại dịch vụ:</label>
+                <label for="pet-type">Loại thú cưng:</label>
+                <select id="pet-type" name="pet-type">
+                    <option value="">Chọn loại thú cưng</option>
+                    <option value="chó">Chó</option>
+                    <option value="mèo">Mèo</option>
+                    <option value="khác">Khác</option>
+                </select>
+                <div id="petTypeError" class="error"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Dịch vụ chăm sóc:</label>
                 <select id="service" name="service">
-                    <option value="">Chọn loại dịch vụ</option>
-                    <option value="dọn nhà cơ bản">Dọn nhà cơ bản</option>
-                    <option value="dọn nhà cao cấp">Dọn nhà cao cấp</option>
-                    <option value="dọn nhà sau xây dựng">Dọn nhà sau xây dựng</option>
-                    <option value="dọn dẹp sân vườn">Dọn dẹp sân vườn</option>
+                    <option value="">Chọn dịch vụ chăm sóc</option>
+                    <option value="tắm">Tắm cho thú cưng</option>
+                    <option value="cắt lông">Cắt lông cho thú cưng</option>
+                    <option value="chăm sóc sức khỏe">Chăm sóc sức khỏe</option>
+                    <option value="vệ sinh miệng">Vệ sinh miệng cho thú cưng</option>
                 </select>
                 <div id="serviceError" class="error"></div>
             </div>
 
             <div class="form-group">
-                <label for="time">Thời gian dọn nhà:</label>
-                <input type="text" id="time" name="time" placeholder="Nhập thời gian dọn nhà">
+                <label for="time">Thời gian chăm sóc:</label>
+                <input type="text" id="time" name="time" placeholder="Nhập thời gian chăm sóc">
                 <div id="timeError" class="error"></div>
             </div>
 
@@ -140,6 +151,7 @@
             document.getElementById('nameError').innerText = '';
             document.getElementById('emailError').innerText = '';
             document.getElementById('phoneError').innerText = '';
+            document.getElementById('petTypeError').innerText = '';
             document.getElementById('serviceError').innerText = '';
             document.getElementById('timeError').innerText = '';
 
@@ -170,21 +182,28 @@
                 document.getElementById('phoneError').innerText = 'Vui lòng nhập số điện thoại.';
                 isValid = false;
             } else if (!phoneRegex.test(phone)) {
-document.getElementById('phoneError').innerText = 'Số điện thoại không hợp lệ.';
+                document.getElementById('phoneError').innerText = 'Số điện thoại không hợp lệ.';
                 isValid = false;
             }
 
-            // Kiểm tra loại dịch vụ
+            // Kiểm tra loại thú cưng
+            const petType = document.getElementById('pet-type').value;
+            if (petType === '') {
+                document.getElementById('petTypeError').innerText = 'Vui lòng chọn loại thú cưng.';
+                isValid = false;
+            }
+
+            // Kiểm tra dịch vụ chăm sóc
             const service = document.getElementById('service').value;
             if (service === '') {
-                document.getElementById('serviceError').innerText = 'Vui lòng chọn loại dịch vụ.';
+                document.getElementById('serviceError').innerText = 'Vui lòng chọn dịch vụ chăm sóc.';
                 isValid = false;
             }
 
-            // Kiểm tra thời gian dọn nhà
+            // Kiểm tra thời gian chăm sóc
             const time = document.getElementById('time').value;
             if (time === '') {
-                document.getElementById('timeError').innerText = 'Vui lòng nhập thời gian dọn nhà.';
+                document.getElementById('timeError').innerText = 'Vui lòng nhập thời gian chăm sóc.';
                 isValid = false;
             }
 
