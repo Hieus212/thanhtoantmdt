@@ -3,193 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng Ký Dịch Vụ Chăm Sóc Thú Cưng</title>
+    <title>Đăng Ký Dịch Vụ Dọn Nhà</title>
     <style>
-        /* Thiết kế chung cho form */
+        /* Định dạng chung */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f7f7; /* Màu nền sáng hơn */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #f4f4f4;
         }
 
-        .form-container {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
+        .container {
+            width: 100%;
             max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
+        h2 {
             text-align: center;
-            color: #4CAF50; /* Xanh lá cây sáng */
+            color: #333;
         }
 
-        form {
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Hai cột */
-            gap: 20px;
+        .form-group {
+            margin-bottom: 15px;
         }
 
         label {
-            font-weight: bold;
             display: block;
-            color: #333; /* Màu chữ tối hơn */
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
-        input, textarea, select {
+        input[type="text"], input[type="email"], input[type="tel"], select, input[type="submit"] {
             width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            margin-bottom: 12px;
-            border-radius: 6px;
-            border: 1px solid #ddd; /* Màu viền nhạt hơn */
-        }
-
-        textarea {
-            grid-column: span 2; /* Làm cho textarea chiếm toàn bộ cột */
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background-color: #FF5733; /* Màu cam nổi bật */
+            background-color: #4CAF50;
             color: white;
-            border: none;
             cursor: pointer;
-            font-size: 16px;
-            padding: 15px 22px;
-            grid-column: span 2; /* Làm cho nút submit chiếm toàn bộ cột */
-            border-radius: 6px;
-            transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #C7461C; /* Màu cam đậm hơn khi hover */
+            background-color: #45a049;
         }
 
         .error {
-            color: #FF0000; /* Đỏ sáng cho thông báo lỗi */
+            color: red;
             font-size: 12px;
         }
 
-        /* Responsive design */
+        /* Thiết kế đáp ứng */
         @media (max-width: 414px) {
-            .form-container {
-                width: 100%;
-            }
-            form {
-                grid-template-columns: 1fr; /* Chuyển thành một cột cho màn hình nhỏ */
+            .container {
+                width: 90%;
+                padding: 15px;
             }
         }
 
-        @media (max-width: 1024px) {
-            .form-container {
+        @media (min-width: 415px) and (max-width: 1024px) {
+            .container {
                 width: 80%;
+                padding: 20px;
             }
         }
 
-        @media (max-width: 1440px) {
-            .form-container {
-                width: 60%;
+        @media (min-width: 1025px) {
+            .container {
+                width: 50%;
+                padding: 30px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="form-container">
-        <h1>Đăng Ký Dịch Vụ Chăm Sóc Thú Cưng</h1>
-        <form id="pet-care-form" onsubmit="return validateForm()">
-            <label for="name">Họ và Tên:</label>
-            <input type="text" id="name" name="name" required>
-            <div id="name-error" class="error"></div>
+    <div class="container">
+        <h2>Đăng Ký Dịch Vụ Dọn Nhà</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" placeholder="Nhập họ và tên">
+                <div id="nameError" class="error"></div>
+            </div>
 
-            <label for="email">Địa chỉ Email:</label>
-            <input type="email" id="email" name="email" required>
-            <div id="email-error" class="error"></div>
+            <div class="form-group">
+                <label for="email">Địa chỉ email:</label>
+                <input type="email" id="email" name="email" placeholder="Nhập địa chỉ email">
+                <div id="emailError" class="error"></div>
+            </div>
 
-            <label for="phone">Số điện thoại:</label>
-            <input type="text" id="phone" name="phone" required>
-            <div id="phone-error" class="error"></div>
+            <div class="form-group">
+                <label for="phone">Số điện thoại:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại">
+<div id="phoneError" class="error"></div>
+            </div>
 
-            <label for="pet-type">Loại Thú Cưng:</label>
-            <select id="pet-type" name="pet-type" required>
-                <option value="">Chọn loại thú cưng</option>
-                <option value="dog">Chó</option>
-                <option value="cat">Mèo</option>
-                <option value="other">Khác</option>
-            </select>
-            <div id="pet-type-error" class="error"></div>
+            <div class="form-group">
+                <label for="service">Loại dịch vụ:</label>
+                <select id="service" name="service">
+                    <option value="">Chọn loại dịch vụ</option>
+                    <option value="dọn nhà cơ bản">Dọn nhà cơ bản</option>
+                    <option value="dọn nhà cao cấp">Dọn nhà cao cấp</option>
+                    <option value="dọn nhà sau xây dựng">Dọn nhà sau xây dựng</option>
+                    <option value="dọn dẹp sân vườn">Dọn dẹp sân vườn</option>
+                </select>
+                <div id="serviceError" class="error"></div>
+            </div>
 
-            <label for="description">Mô tả chi tiết nhu cầu:</label>
-            <textarea id="description" name="description" rows="4" required></textarea>
-            <div id="description-error" class="error"></div>
+            <div class="form-group">
+                <label for="time">Thời gian dọn nhà:</label>
+                <input type="text" id="time" name="time" placeholder="Nhập thời gian dọn nhà">
+                <div id="timeError" class="error"></div>
+            </div>
 
-            <input type="submit" value="Đăng Ký">
+            <div class="form-group">
+                <input type="submit" value="Đăng ký">
+            </div>
         </form>
     </div>
 
     <script>
-        // Function validateForm
-        function validateForm() {
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Ngừng gửi form nếu có lỗi
+
+            // Xóa các lỗi cũ
+            document.getElementById('nameError').innerText = '';
+            document.getElementById('emailError').innerText = '';
+            document.getElementById('phoneError').innerText = '';
+            document.getElementById('serviceError').innerText = '';
+            document.getElementById('timeError').innerText = '';
+
             let isValid = true;
 
-            // Reset các lỗi trước
-            resetErrors();
-
-            // Kiểm tra họ tên
-            const name = document.getElementById("name").value;
-            if (name === "") {
-                document.getElementById("name-error").innerText = "Họ và tên không được để trống!";
+            // Kiểm tra họ và tên
+            const name = document.getElementById('name').value;
+            if (name === '') {
+                document.getElementById('nameError').innerText = 'Vui lòng nhập họ và tên.';
                 isValid = false;
             }
 
             // Kiểm tra email
-            const email = document.getElementById("email").value;
-            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailPattern.test(email)) {
-                document.getElementById("email-error").innerText = "Email không hợp lệ!";
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (email === '') {
+                document.getElementById('emailError').innerText = 'Vui lòng nhập địa chỉ email.';
+                isValid = false;
+            } else if (!emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = 'Địa chỉ email không hợp lệ.';
                 isValid = false;
             }
 
             // Kiểm tra số điện thoại
-            const phone = document.getElementById("phone").value;
-            const phonePattern = /^\d{10,11}$/;
-            if (!phonePattern.test(phone)) {
-                document.getElementById("phone-error").innerText = "Số điện thoại phải có 10 hoặc 11 chữ số!";
+            const phone = document.getElementById('phone').value;
+            const phoneRegex = /^\d{10}$/;
+            if (phone === '') {
+                document.getElementById('phoneError').innerText = 'Vui lòng nhập số điện thoại.';
+                isValid = false;
+            } else if (!phoneRegex.test(phone)) {
+document.getElementById('phoneError').innerText = 'Số điện thoại không hợp lệ.';
                 isValid = false;
             }
 
-            // Kiểm tra loại thú cưng
-            const petType = document.getElementById("pet-type").value;
-            if (petType === "") {
-                document.getElementById("pet-type-error").innerText = "Vui lòng chọn loại thú cưng!";
+            // Kiểm tra loại dịch vụ
+            const service = document.getElementById('service').value;
+            if (service === '') {
+                document.getElementById('serviceError').innerText = 'Vui lòng chọn loại dịch vụ.';
                 isValid = false;
             }
 
-            // Kiểm tra mô tả nhu cầu
-            const description = document.getElementById("description").value;
-            if (description === "") {
-                document.getElementById("description-error").innerText = "Mô tả nhu cầu không được để trống!";
+            // Kiểm tra thời gian dọn nhà
+            const time = document.getElementById('time').value;
+            if (time === '') {
+                document.getElementById('timeError').innerText = 'Vui lòng nhập thời gian dọn nhà.';
                 isValid = false;
             }
 
-            return isValid;
-        }
-
-        // Function resetErrors
-        function resetErrors() {
-            document.getElementById("name-error").innerText = "";
-            document.getElementById("email-error").innerText = "";
-            document.getElementById("phone-error").innerText = "";
-            document.getElementById("pet-type-error").innerText = "";
-            document.getElementById("description-error").innerText = "";
-        }
+            if (isValid) {
+                alert('Đăng ký thành công!');
+                // Gửi form hoặc xử lý tiếp theo tại đây
+            }
+        });
     </script>
 
 </body>
