@@ -248,7 +248,7 @@
             const email = document.getElementById('email').value;
             const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
             if (email === '') {
-                document.getElementById('emailError').innerText = 'Vui lòng nhập email.';
+                document.getElementById('emailError').innerText = 'Vui lòng nhập địa chỉ email.';
                 isValid = false;
             } else if (!emailRegex.test(email)) {
                 document.getElementById('emailError').innerText = 'Email không hợp lệ.';
