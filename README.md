@@ -31,10 +31,15 @@
             color: #78be20;
         }
 
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Hai cột */
+            gap: 15px;
+        }
+
         label {
             font-weight: bold;
             display: block;
-            margin-top: 10px;
         }
 
         input, textarea, select {
@@ -46,6 +51,10 @@
             border: 1px solid #ccc;
         }
 
+        textarea {
+            grid-column: span 2; /* Làm cho textarea chiếm toàn bộ cột */
+        }
+
         input[type="submit"] {
             background-color: #78be20;
             color: white;
@@ -53,6 +62,7 @@
             cursor: pointer;
             font-size: 16px;
             padding: 12px 20px;
+            grid-column: span 2; /* Làm cho nút submit chiếm toàn bộ cột */
         }
 
         input[type="submit"]:hover {
@@ -68,6 +78,9 @@
         @media (max-width: 414px) {
             .form-container {
                 width: 100%;
+            }
+            form {
+                grid-template-columns: 1fr; /* Chuyển thành một cột cho màn hình nhỏ */
             }
         }
 
